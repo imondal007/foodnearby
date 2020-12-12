@@ -1,0 +1,25 @@
+@layer components {
+  .btn {
+    @apply bg-gray-100 text-gray-900 px-5 py-2 rounded font-bold;
+  }
+
+  .btn:hover {
+    @apply bg-gray-200;
+  }
+
+  .btn-primary {
+    @apply bg-green-500 text-white px-5 py-2 rounded font-bold;
+  }
+
+  .btn-primary:hover {
+    @apply bg-green-600;
+  }
+
+  .btn-dark {
+    @apply bg-gray-900 text-white px-5 py-2 rounded font-bold;
+  }
+
+  .btn-dark:hover {
+    @apply bg-black;
+  }
+}
