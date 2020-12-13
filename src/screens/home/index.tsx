@@ -14,7 +14,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
       <Head title="Home" />
       <div className="bg-gray-50 min-h-screen">
         <Header />
-        <div className="container mx-auto max-w-5xl over">
+        <div className="container mx-auto max-w-5xl">
           <div className="flex flex-wrap md:-m-4 md:pt-10 p-4 justify-center md:justify-start">
             {list &&
               list.map((item) => (
