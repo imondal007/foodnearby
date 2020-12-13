@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { NextPage, GetServerSideProps } from "next";
 import { LOCATION, RADIUS } from "src/constants";
 import { GET_RESTAURANTS } from "src/constants/externalAPI";
 
@@ -13,7 +13,7 @@ type Props = {
   props: RestaurantsType;
 };
 
-export const getServerSideProps = async (): Promise<Props> => {
+export const getServerSideProps: GetServerSideProps = async (): Promise<Props> => {
   const { GCP_API_KEY } = process.env;
   const URL = `${GET_RESTAURANTS}&key=${GCP_API_KEY}&location=${LOCATION}&radius=${RADIUS}`;
 
