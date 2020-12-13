@@ -1,5 +1,6 @@
 import getImgUrl from "src/helpers/getImgUrl";
 import { RestaurantType } from "src/types";
+import Ratings from "./ratings";
 
 type Props = {
   restaurant: RestaurantType;
@@ -22,11 +23,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
       />
       <div className="pt-3">
         <div className="flex flex-row justify-between">
-          <p className="text-sm font-normal text-gray-500">
-            <span className="text-red-500 pr-1">★</span>
-            {`${rating} (${user_ratings_total})`}
-          </p>
-
+          <Ratings rating={rating} count={user_ratings_total} />
           <p className="text-sm font-normal text-gray-800">
             {opening_hours.open_now ? (
               <>
