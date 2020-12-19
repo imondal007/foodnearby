@@ -23,9 +23,11 @@ const RestaurantDetailsPage: NextPage<Props> = ({
   const [details, setDetails] = useState<RestaurantType>(restaurant);
   const [isLoading, setLoading] = useState(loading);
 
+  const hasData = Object.keys(details).length;
+
   const getRestaurant = async () => {
     const URL = `${RESTAURANT_DETAILS}?place_id=${id}`;
-    setLoading(true);
+    setLoading(!hasData);
 
     await fetch(URL)
       .then((res) => res.json())
