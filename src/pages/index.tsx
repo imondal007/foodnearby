@@ -8,6 +8,7 @@ import { RestaurantsType } from "src/types";
 
 type Props = {
   props: RestaurantsType;
+  revalidate: number;
 };
 
 const HomePage: NextPage<RestaurantsType> = ({
@@ -26,7 +27,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
 
   const restaurants = JSON.parse(res)?.results || [];
 
-  return { props: { restaurants } };
+  return { props: { restaurants }, revalidate: 1800 };
 };
 
 export default HomePage;
