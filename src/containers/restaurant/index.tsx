@@ -47,7 +47,7 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
       <div className="bg-gray-50 min-h-screen relative">
         <Header backButton />
         <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row p-4 pt-24 md:pt-24 lg:pt-28 md:space-x-5">
+          <div className="flex flex-col md:flex-row p-4 pt-24 md:pt-28 lg:pt-32 md:space-x-5">
             <div className="md:w-1/2">
               <div className="bg-white rounded-lg mb-auto h-80 overflow-hidden">
                 <img
