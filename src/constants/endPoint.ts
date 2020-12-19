@@ -1,2 +1,2 @@
 // Our own API endpoints will be stored here
-export {};
+export const GET_RESTAURANTS = "/api/getrestaurants";

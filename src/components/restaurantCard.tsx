@@ -14,6 +14,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
     opening_hours,
     name,
     vicinity,
+    business_status,
   } = restaurant;
   return (
     <div className="xl:w-1/3 md:w-1/3 w-96 p-4">
@@ -27,7 +28,11 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
         <div className="flex flex-row justify-between">
           <Rating rating={rating} count={user_ratings_total} />
           <p className="text-sm font-normal text-gray-800">
-            {opening_hours.open_now ? (
+            {business_status === "CLOSED_PERMANENTLY" ? (
+              <>
+                <span className="text-red-600">● </span>Closed Permanently
+              </>
+            ) : opening_hours.open_now ? (
               <>
                 <span className="text-green-500">● </span>Open Now
               </>
