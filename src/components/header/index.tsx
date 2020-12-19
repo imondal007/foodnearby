@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import ConditionalView from "../conditional-view";
 
@@ -17,7 +16,7 @@ const Header: React.FC<Props> = ({ onSearch, backButton }) => {
       <ConditionalView condition={backButton}>
         <Link href="/">
           <a className="bg-black m-2 my-auto p-2 flex h-10 w-10 rounded-md">
-            <Image
+            <img
               src="/static/icons/left-arrow.png"
               alt="< Back"
               width={32}
