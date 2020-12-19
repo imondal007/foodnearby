@@ -13,7 +13,7 @@ const Header: React.FC<Props> = ({ onSearch }) => {
       <div className="bg-gray-50 max-w-lg mx-auto flex p-2 rounded my-2">
         <input
           type="text"
-          className="h-10 flex-1 md:px-4 mr-2 bg-gray-50 md:text-base text-sm"
+          className="h-10 flex-1 md:px-4 mr-2 bg-gray-50 md:text-base text-sm focus:outline-none"
           placeholder="Search for restaurant, cuisines, and dishes"
           onChange={(e) => setQuery(e.target.value)}
         />
