@@ -1,0 +1,18 @@
+@-webkit-keyframes opacityPulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate {
+  animation: opacityPulse 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 1;
+  text-align: center;
+}
