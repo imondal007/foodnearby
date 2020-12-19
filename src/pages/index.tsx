@@ -3,7 +3,7 @@ import { NextPage, GetStaticProps } from "next";
 import Home from "src/screens/home";
 
 import { LOCATION, RADIUS } from "src/constants";
-import { GET_RESTAURANTS } from "src/constants/endPoint";
+import { getRestaurants } from "src/pages/api/getrestaurants";
 import { RestaurantsType, RestaurantType } from "src/types";
 
 type Props = {
@@ -17,13 +17,14 @@ const HomePage: NextPage<RestaurantsType> = ({
 };
 
 export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
-  const { SITE_URL } = process.env;
+  const res = await getRestaurants({
+    query: {
+      location: LOCATION,
+      radius: RADIUS,
+    },
+  });
 
-  const URL = `${SITE_URL}${GET_RESTAURANTS}?location=${LOCATION}&radius=${RADIUS}`;
-
-  const restaurants: Array<RestaurantType> = await fetch(URL)
-    .then((res) => res.json())
-    .then((res) => res.results || []);
+  const restaurants = JSON.parse(res).results;
 
   return { props: { restaurants } };
 };

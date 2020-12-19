@@ -1,6 +1,6 @@
 import { GOOGLE_PLACES } from "src/constants/externalAPI";
 
-export default async function handler(req, res) {
+export async function getRestaurants(req) {
   const { query } = req;
 
   const qs = Object.keys(query)
@@ -14,5 +14,10 @@ export default async function handler(req, res) {
     .then((resp) => resp.json())
     .catch((e) => e);
 
-  res.end(JSON.stringify(result));
+  return JSON.stringify(result);
 }
+
+export default async (req, res) => {
+  const result = await getRestaurants(req);
+  res.end(result);
+};
