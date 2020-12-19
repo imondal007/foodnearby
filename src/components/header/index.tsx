@@ -28,10 +28,14 @@ const Header: React.FC<Props> = ({ onSearch, backButton }) => {
 
       <ConditionalView condition={!!onSearch}>
         <div className="bg-gray-50 max-w-lg w-full flex p-2 rounded mx-auto my-auto">
+          <label htmlFor="search-input" className="hidden">
+            Search
+          </label>
           <input
             type="text"
             className="h-10 flex-1 md:px-4 mr-2 bg-gray-50 md:text-base text-sm focus:outline-none"
-            placeholder="Search by restaurant, cuisines or dishes"
+            id="search-input"
+            placeholder="Search restaurant"
             onChange={(e) => setQuery(e.target.value)}
           />
           <button onClick={handleSubmit} className="btn-dark">

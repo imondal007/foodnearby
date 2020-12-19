@@ -33,7 +33,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
 
   return (
     <>
-      <Head title="Food Nearby" />
+      <Head title="Food Nearby" description="Find nearby restaurant list" />
       <div className="bg-gray-50 min-h-screen relative">
         <Header onSearch={handleSearch} />
         <div className="container mx-auto max-w-5xl">
