@@ -8,6 +8,7 @@ import LoadingIndicator from "src/components/loading-indicator";
 
 import { RestaurantType } from "src/types";
 import getImgUrl from "src/helpers/img-url";
+import ErrorView from "src/components/error-view";
 
 type Props = {
   details: RestaurantType;
@@ -31,14 +32,11 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
     return (
       <>
         <Header backButton />
-        <div className="flex flex-col h-screen w-screen bg-gray-50 justify-center items-center">
-          <h3 className="text-2xl font-bold text-gray-800">
-            Restaurant Not Found
-          </h3>
-          <Link href="/">
-            <a className="text-blue-500">Search again</a>
-          </Link>
-        </div>
+        <ErrorView
+          title="Restaurant Not Found"
+          retryText="Search again"
+          retryLink="/"
+        />
       </>
     );
   }
