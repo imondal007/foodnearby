@@ -17,7 +17,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
   } = restaurant;
   return (
     <div className="xl:w-1/3 md:w-1/3 w-96 p-4">
-      <div className="bg-white">
+      <div className="bg-white rounded-lg">
         <img
           src={getImgUrl(photos[0].photo_reference, 320)}
           className="w-full h-52 object-cover rounded-lg"

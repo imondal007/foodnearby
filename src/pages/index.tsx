@@ -1,19 +1,22 @@
-import { NextPage, GetServerSideProps } from "next";
+import { NextPage, GetStaticProps } from "next";
+
 import { LOCATION, RADIUS } from "src/constants";
 import { GET_RESTAURANTS } from "src/constants/externalAPI";
-
-import Home from "src/screens/home";
 import { RestaurantsType, RestaurantType } from "src/types";
 
-const HomePage: NextPage<RestaurantsType> = ({
-  restaurants,
-}: RestaurantsType) => <Home restaurants={restaurants} />;
+import Home from "src/screens/home";
 
 type Props = {
   props: RestaurantsType;
 };
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<Props> => {
+const HomePage: NextPage<RestaurantsType> = ({
+  restaurants,
+}: RestaurantsType) => {
+  return <Home restaurants={restaurants} />;
+};
+
+export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
   const { GCP_API_KEY } = process.env;
   const URL = `${GET_RESTAURANTS}&key=${GCP_API_KEY}&location=${LOCATION}&radius=${RADIUS}`;
 
