@@ -20,7 +20,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
     <div className="xl:w-1/3 md:w-1/3 w-96 p-4">
       <div className="bg-white rounded-lg">
         <img
-          src={getImgUrl(photos[0].photo_reference, 320)}
+          src={photos && getImgUrl(photos[0].photo_reference, 320)}
           className="w-full h-52 object-cover rounded-lg"
         />
       </div>
@@ -32,7 +32,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
               <>
                 <span className="text-red-600">● </span>Closed Permanently
               </>
-            ) : opening_hours.open_now ? (
+            ) : opening_hours?.open_now ? (
               <>
                 <span className="text-green-500">● </span>Open Now
               </>
