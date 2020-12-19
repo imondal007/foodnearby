@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Head from "src/components/head";
 import Header from "src/components/header";
 import RestaurantCard from "src/components/restaurantCard";
 
@@ -28,6 +29,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
 
   return (
     <>
+      <Head title="Food Nearby" />
       <div className="bg-gray-50 min-h-screen">
         <Header onSearch={handleSearch} />
         <div className="container mx-auto max-w-5xl">

@@ -7,8 +7,8 @@ export async function getRestaurants(req) {
     .map((key) => `${key}=${query[key]}`)
     .join("&");
 
-  const { NEXT_PUBLIC_GCP_API_KEY } = process.env;
-  const URL = `${GOOGLE_PLACES}?type=restaurant&&key=${NEXT_PUBLIC_GCP_API_KEY}&${qs}`;
+  const { GCP_API_KEY } = process.env;
+  const URL = `${GOOGLE_PLACES}?type=restaurant&&key=${GCP_API_KEY}&${qs}`;
 
   const result = await fetch(URL)
     .then((resp) => resp.json())
