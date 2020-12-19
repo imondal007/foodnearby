@@ -50,7 +50,7 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
         <Header backButton />
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col md:flex-row p-4 pt-24 md:pt-24 lg:pt-28 md:space-x-5">
-            <div>
+            <div className="md:w-1/2">
               <div className="bg-white rounded-lg mb-auto h-80 overflow-hidden">
                 <img
                   src={photos && getImgUrl(photos[0].photo_reference, 500)}
@@ -89,7 +89,10 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
 
                 {reviews &&
                   reviews.map((item) => (
-                    <div className="bg-white mb-2 p-4 rounded-md">
+                    <div
+                      key={item.time}
+                      className="bg-white mb-2 p-4 rounded-md"
+                    >
                       <div className="flex flex-1 justify-between items-center">
                         <div>
                           <h3 className="text-lg font-semibold text-gray-800">

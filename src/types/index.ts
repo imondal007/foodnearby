@@ -3,6 +3,7 @@ export interface ReviewsType {
   relative_time_description: string;
   rating: number;
   text: string;
+  time: number;
 }
 
 export interface RestaurantType {
