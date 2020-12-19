@@ -11,10 +11,9 @@ import getImgUrl from "src/helpers/img-url";
 
 type Props = {
   details: RestaurantType;
-  isLoading: boolean;
 };
 
-const RestaurantDetails: React.FC<Props> = ({ details, isLoading }: Props) => {
+const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
   const {
     photos,
     rating,
@@ -27,17 +26,6 @@ const RestaurantDetails: React.FC<Props> = ({ details, isLoading }: Props) => {
   } = details;
 
   const notFound = !Object.keys(details).length;
-
-  if (isLoading) {
-    return (
-      <>
-        <Header backButton />
-        <div className="flex h-screen w-screen bg-gray-50 justify-center items-center">
-          <LoadingIndicator />
-        </div>
-      </>
-    );
-  }
 
   if (notFound) {
     return (

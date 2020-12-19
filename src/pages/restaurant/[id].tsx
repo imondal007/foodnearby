@@ -1,47 +1,16 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 
 import { RestaurantType } from "src/types";
-import { RESTAURANT_DETAILS } from "src/constants/end-point";
 
 import RestaurantDetails from "src/containers/restaurant";
 import { getRestaurant } from "src/pages/api/restaurantdetails";
 
 type Props = {
   restaurant: RestaurantType;
-  loading: boolean;
 };
 
-const RestaurantDetailsPage: NextPage<Props> = ({
-  restaurant,
-  loading,
-}: Props) => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const [details, setDetails] = useState<RestaurantType>(restaurant);
-  const [isLoading, setLoading] = useState(loading);
-
-  const hasData = Object.keys(details).length;
-
-  const getRestaurant = async () => {
-    const URL = `${RESTAURANT_DETAILS}?place_id=${id}`;
-    setLoading(!hasData);
-
-    await fetch(URL)
-      .then((res) => res.json())
-      .then((res) => setDetails(res.result))
-      .finally(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    if (id) {
-      getRestaurant();
-    }
-  }, [id]);
-
-  return <RestaurantDetails details={details} isLoading={isLoading} />;
+const RestaurantDetailsPage: NextPage<Props> = ({ restaurant }: Props) => {
+  return <RestaurantDetails details={restaurant} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -55,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const restaurant = JSON.parse(res)?.result || {};
 
-  return { props: { restaurant, loading: false } };
+  return { props: { restaurant } };
 };
 
 export default RestaurantDetailsPage;
