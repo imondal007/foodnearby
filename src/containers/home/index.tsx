@@ -3,10 +3,10 @@ import Head from "src/components/head";
 import Header from "src/components/header";
 
 import { LOCATION, RADIUS } from "src/constants";
-import { GET_RESTAURANTS } from "src/constants/endPoint";
+import { GET_RESTAURANTS } from "src/constants/end-point";
 import { RestaurantsType } from "src/types";
 
-import RestaurantList from "./restaurantList";
+import RestaurantList from "./restaurant-list";
 
 const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
   const [state, setState] = useState({ list: restaurants, isLoading: false });
@@ -34,10 +34,10 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
   return (
     <>
       <Head title="Food Nearby" />
-      <div className="bg-gray-50 min-h-screen">
+      <div className="bg-gray-50 min-h-screen relative">
         <Header onSearch={handleSearch} />
         <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-wrap md:-m-4 md:pt-10 p-4 justify-center md:justify-start">
+          <div className="flex flex-wrap justify-center md:justify-start p-4 pt-20 md:pt-24 lg:pt-28">
             <RestaurantList restaurants={list} isLoading={isLoading} />
           </div>
         </div>

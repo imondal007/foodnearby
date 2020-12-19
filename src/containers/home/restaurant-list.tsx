@@ -1,5 +1,5 @@
-import RestaurantCard from "src/components/restaurantCard";
-import ShimmerRC from "src/components/shimmer/ShimmerRC";
+import RestaurantCard from "src/components/restaurant-card";
+import ShimmerRC from "src/components/shimmer/shimmer-rc";
 import { RestaurantType } from "src/types";
 
 type Props = {

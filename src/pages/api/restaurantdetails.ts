@@ -1,6 +1,6 @@
 import { GOOGLE_PLACES } from "src/constants/external-api";
 
-export async function getRestaurants(req) {
+export async function getRestaurant(req) {
   const { query } = req;
 
   const qs = Object.keys(query)
@@ -8,7 +8,7 @@ export async function getRestaurants(req) {
     .join("&");
 
   const { NEXT_PUBLIC_GCP_API_KEY } = process.env;
-  const URL = `${GOOGLE_PLACES}/nearbysearch/json?type=restaurant&key=${NEXT_PUBLIC_GCP_API_KEY}&${qs}`;
+  const URL = `${GOOGLE_PLACES}/details/json?&key=${NEXT_PUBLIC_GCP_API_KEY}&${qs}`;
 
   const result = await fetch(URL)
     .then((resp) => resp.json())
@@ -18,6 +18,6 @@ export async function getRestaurants(req) {
 }
 
 export default async (req, res) => {
-  const result = await getRestaurants(req);
+  const result = await getRestaurant(req);
   res.end(result);
 };

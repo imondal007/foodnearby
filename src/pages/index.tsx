@@ -1,10 +1,10 @@
 import { NextPage, GetStaticProps } from "next";
 
-import Home from "src/screens/home";
+import Home from "src/containers/home";
 
 import { LOCATION, RADIUS } from "src/constants";
 import { getRestaurants } from "src/pages/api/getrestaurants";
-import { RestaurantsType, RestaurantType } from "src/types";
+import { RestaurantsType } from "src/types";
 
 type Props = {
   props: RestaurantsType;
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
     },
   });
 
-  const restaurants = JSON.parse(res).results;
+  const restaurants = JSON.parse(res)?.results || [];
 
   return { props: { restaurants } };
 };
