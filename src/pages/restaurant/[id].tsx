@@ -10,14 +10,18 @@ import { getRestaurant } from "src/pages/api/restaurantdetails";
 
 type Props = {
   restaurant: RestaurantType;
+  loading: boolean;
 };
 
-const RestaurantDetailsPage: NextPage<Props> = ({ restaurant }: Props) => {
+const RestaurantDetailsPage: NextPage<Props> = ({
+  restaurant,
+  loading,
+}: Props) => {
   const router = useRouter();
   const { id } = router.query;
 
   const [details, setDetails] = useState<RestaurantType>(restaurant);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(loading);
 
   const getRestaurant = async () => {
     const URL = `${RESTAURANT_DETAILS}?place_id=${id}`;
@@ -49,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const restaurant = JSON.parse(res)?.result || {};
 
-  return { props: { restaurant } };
+  return { props: { restaurant, loading: false } };
 };
 
 export default RestaurantDetailsPage;
