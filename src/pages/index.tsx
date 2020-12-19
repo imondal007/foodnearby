@@ -17,8 +17,8 @@ const HomePage: NextPage<RestaurantsType> = ({
 };
 
 export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
-  const { GCP_API_KEY } = process.env;
-  const URL = `${GET_RESTAURANTS}&key=${GCP_API_KEY}&location=${LOCATION}&radius=${RADIUS}`;
+  const { NEXT_PUBLIC_GCP_API_KEY } = process.env;
+  const URL = `${GET_RESTAURANTS}&key=${NEXT_PUBLIC_GCP_API_KEY}&location=${LOCATION}&radius=${RADIUS}`;
 
   const restaurants: Array<RestaurantType> = await fetch(URL)
     .then((res) => res.json())

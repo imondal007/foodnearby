@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Head from "src/components/head";
 import Header from "src/components/header";
 import RestaurantCard from "src/components/restaurantCard";
 
+import { LOCATION, RADIUS } from "src/constants";
+import { GET_RESTAURANTS } from "src/constants/externalAPI";
+
 import { RestaurantsType } from "src/types";
 
 const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
   const [list, setList] = useState(restaurants);
+
+  const getRestaurants = async () => {
+    const { NEXT_PUBLIC_GCP_API_KEY } = process.env;
+    const URL = `${GET_RESTAURANTS}&key=${NEXT_PUBLIC_GCP_API_KEY}&location=${LOCATION}&radius=${RADIUS}`;
+
+    await fetch(URL)
+      .then((res) => res.json())
+      .then((res) => setList(res.results));
+  };
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
 
   return (
     <>
