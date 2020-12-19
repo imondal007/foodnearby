@@ -10,6 +10,7 @@ export interface RestaurantType {
   };
   rating: number;
   user_ratings_total: number;
+  business_status: string;
 }
 
 export interface RestaurantsType {
