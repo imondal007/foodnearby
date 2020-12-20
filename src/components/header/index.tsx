@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import ConditionalView from "../conditional-view";
 
@@ -8,22 +8,24 @@ type Props = {
 };
 const Header: React.FC<Props> = ({ onSearch, backButton }) => {
   const [query, setQuery] = useState("");
+  const router = useRouter();
 
   const handleSubmit = () => onSearch(query);
 
   return (
-    <div className="bg-white border-b-2 border-gray-100	px-2 fixed w-full h-20 flex">
+    <div className="bg-white border-b-2 border-gray-100	px-2 fixed w-full h-20 flex z-50">
       <ConditionalView condition={backButton}>
-        <Link href="/">
-          <a className="bg-black m-2 my-auto p-2 flex h-10 w-10 rounded-md">
-            <img
-              src="/static/icons/left-arrow.png"
-              alt="< Back"
-              width={32}
-              height={32}
-            />
-          </a>
-        </Link>
+        <button
+          onClick={() => router.back()}
+          className="bg-black m-2 my-auto p-2 flex h-10 w-10 rounded-md"
+        >
+          <img
+            src="/static/icons/left-arrow.png"
+            alt="< Back"
+            width={32}
+            height={32}
+          />
+        </button>
       </ConditionalView>
 
       <ConditionalView condition={!!onSearch}>
