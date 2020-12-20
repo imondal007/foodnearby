@@ -1,5 +1,5 @@
 ## Food Nearby
-Food Nearby is a :computer: web app that help you by showing list of restaurants within 3km of a predefined location. It's loads in less than 1.5s :rocket: which is super fast. You can also search for restaurants by name, cuisines or dishes without leaving the page. You can see detail reviews by clicking on any restaurant item on homepage
+Food Nearby is a :computer: web app that help you by showing list of restaurants within 3km of a predefined location. It's loads in less than 1.5s :rocket: which is super fast. You can also search for restaurants by name, cuisines or dishes without leaving the page. You can see detail reviews and restaurant map by clicking on any restaurant item from homepage
 
 Finding perfect eating place is now easier than ever :raised_hands:.
 
@@ -35,8 +35,18 @@ $ npm dev
 or
 $ yarn dev
 ```
+
+Building the app for production usage:
+
+```sh
+$ npm build
+or
+$ yarn build
+```
+
 ## Deployment 
 For guide on deployment, see this docs: [https://nextjs.org/docs/deployment](https://nextjs.org/docs/deployment)
+
 ## Built with
 - [Next.js](https://github.com/vercel/next.js)
 - [TypeScript](https://github.com/microsoft/TypeScript)
