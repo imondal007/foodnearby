@@ -26,7 +26,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
 
     await fetch(URL)
       .then((res) => res.json())
-      .then((res) => setState({ list: res.results || [], isLoading: false, q }))
+      .then((res) => setState({ list: res.results || [], isLoading: false }))
       .catch(() => setState({ list: [], isLoading: false }));
   };
 
