@@ -8,6 +8,7 @@ import ConditionalView from "src/components/conditional-view";
 import { RestaurantType } from "src/types";
 import getImgUrl from "src/helpers/img-url";
 import OpeningStatus from "src/components/opening-status";
+import RestaurantMap from "src/restaurant-map";
 
 type Props = {
   details: RestaurantType;
@@ -23,6 +24,7 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
     vicinity,
     business_status,
     reviews,
+    place_id,
   } = details;
 
   const notFound = !Object.keys(details).length;
@@ -64,6 +66,8 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
               <p className="text-base font-normal text-gray-800 mb-2">
                 {vicinity}
               </p>
+
+              <RestaurantMap place_id={place_id} />
             </div>
             <div className="pt-3 md:pt-0 flex-1">
               <ConditionalView condition={user_ratings_total > 0}>
