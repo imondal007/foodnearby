@@ -35,7 +35,8 @@ $ npm dev
 or
 $ yarn dev
 ```
-
+## Deployment 
+For guide on deployment, see this docs: [https://nextjs.org/docs/deployment](https://nextjs.org/docs/deployment)
 ## Built with
 - [Next.js](https://github.com/vercel/next.js)
 - [TypeScript](https://github.com/microsoft/TypeScript)
