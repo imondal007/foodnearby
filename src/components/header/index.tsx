@@ -5,9 +5,10 @@ import ConditionalView from "../conditional-view";
 type Props = {
   onSearch?: Function;
   backButton?: boolean;
+  q?: string | string[];
 };
-const Header: React.FC<Props> = ({ onSearch, backButton }) => {
-  const [query, setQuery] = useState("");
+const Header: React.FC<Props> = ({ onSearch, backButton, q = "" }) => {
+  const [query, setQuery] = useState(q);
   const router = useRouter();
 
   const handleSubmit = () => onSearch(query);
@@ -34,6 +35,7 @@ const Header: React.FC<Props> = ({ onSearch, backButton }) => {
             Search
           </label>
           <input
+            value={query}
             type="text"
             className="h-10 flex-1 md:px-4 mr-2 bg-gray-50 md:text-base text-sm focus:outline-none"
             id="search-input"

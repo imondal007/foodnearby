@@ -1,18 +1,18 @@
-import Link from "next/link";
-
 type Props = {
   title: string;
-  retryText: string;
-  retryLink: string;
+  btnText: string;
+  onClick: Function;
 };
 
-const ErrorView = ({ title, retryText, retryLink }: Props) => {
+const ErrorView = ({ title, btnText, onClick }: Props) => {
+  const handleClick = () => onClick();
+
   return (
-    <div className="flex flex-col h-screen w-screen bg-gray-50 justify-center items-center">
+    <div className="flex flex-col max-h-screen h-auto flex-1 bg-gray-50 justify-center items-center">
       <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
-      <Link href={retryLink}>
-        <a className="text-blue-500">{retryText}</a>
-      </Link>
+      <button onClick={handleClick} className="text-blue-500">
+        {btnText}
+      </button>
     </div>
   );
 };

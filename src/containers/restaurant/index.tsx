@@ -1,14 +1,16 @@
+import { useRouter } from "next/router";
+
 import Head from "src/components/head";
 import Header from "src/components/header";
 import Rating from "src/components/rating";
+import RestaurantMap from "src/restaurant-map";
 import ErrorView from "src/components/error-view";
 import ReviewCard from "src/components/review-card";
+import OpeningStatus from "src/components/opening-status";
 import ConditionalView from "src/components/conditional-view";
 
 import { RestaurantType } from "src/types";
 import getImgUrl from "src/helpers/img-url";
-import OpeningStatus from "src/components/opening-status";
-import RestaurantMap from "src/restaurant-map";
 
 type Props = {
   details: RestaurantType;
@@ -27,18 +29,20 @@ const RestaurantDetails: React.FC<Props> = ({ details }: Props) => {
     place_id,
   } = details;
 
+  const router = useRouter();
+
   const notFound = !Object.keys(details).length;
 
   if (notFound) {
     return (
-      <>
+      <div className="flex  min-h-screen">
         <Header backButton />
         <ErrorView
           title="Restaurant Not Found"
-          retryText="Search again"
-          retryLink="/"
+          btnText="Search again"
+          onClick={() => router.push("/")}
         />
-      </>
+      </div>
     );
   }
 
