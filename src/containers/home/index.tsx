@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Head from "src/components/head";
 import Header from "src/components/header";
 
-import { LOCATION, RADIUS } from "src/constants";
-import { GET_RESTAURANTS } from "src/constants/end-point";
 import { RestaurantsType } from "src/types";
 
 import RestaurantList from "./restaurant-list";
@@ -14,31 +12,21 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
   const router = useRouter();
   const { q } = router.query; // search queary from url
 
-  const [state, setState] = useState({ list: restaurants, isLoading: false });
+  const [state, setState] = useState({ list: [], isLoading: false });
   const { list, isLoading } = state;
 
-  const getRestaurants = async () => {
-    const URL = `${GET_RESTAURANTS}?location=${LOCATION}&radius=${RADIUS}&keyword=${q}`;
+  const handleSearch = (q: string) => {
+    setState((prevState) => ({ ...prevState, isLoading: true }));
 
-    if (q) {
-      setState((prevState) => ({ ...prevState, isLoading: true }));
-    }
-
-    await fetch(URL)
-      .then((res) => res.json())
-      .then((res) => setState({ list: res.results || [], isLoading: false }))
-      .catch(() => setState({ list: [], isLoading: false }));
-  };
-
-  const handleSearch = (q: string) =>
     router.push({
       pathname: "/",
       query: { q },
     });
+  };
 
   useEffect(() => {
-    getRestaurants();
-  }, [q]);
+    setState({ list: restaurants, isLoading: false });
+  }, [restaurants]);
 
   return (
     <>

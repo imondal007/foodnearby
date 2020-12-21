@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps, GetServerSideProps } from "next";
 
 import Home from "src/containers/home";
 
@@ -8,7 +8,6 @@ import { RestaurantsType } from "src/types";
 
 type Props = {
   props: RestaurantsType;
-  revalidate: number;
 };
 
 const HomePage: NextPage<RestaurantsType> = ({
@@ -17,17 +16,22 @@ const HomePage: NextPage<RestaurantsType> = ({
   return <Home restaurants={restaurants} />;
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<Props> => {
+export const getServerSideProps: GetServerSideProps = async (
+  context
+): Promise<Props> => {
+  const { q } = context.query;
+
   const res = await getRestaurants({
     query: {
       location: LOCATION,
       radius: RADIUS,
+      keyword: q,
     },
   });
 
   const restaurants = JSON.parse(res)?.results || [];
 
-  return { props: { restaurants }, revalidate: 1800 };
+  return { props: { restaurants } };
 };
 
 export default HomePage;
