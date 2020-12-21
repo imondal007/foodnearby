@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps, GetServerSideProps } from "next";
+import { NextPage, GetServerSideProps } from "next";
 
 import Home from "src/containers/home";
 

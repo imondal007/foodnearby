@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   webpack: (config) => {
     config.node = {
       fs: "empty",
@@ -8,4 +10,8 @@ module.exports = {
   images: {
     domains: ["maps.googleapis.com"],
   },
-};
+  pwa: {
+    dest: "public",
+    scope: "/",
+  },
+});
