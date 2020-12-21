@@ -12,7 +12,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
   const router = useRouter();
   const { q } = router.query; // search queary from url
 
-  const [state, setState] = useState({ list: [], isLoading: false });
+  const [state, setState] = useState({ list: [], isLoading: true });
   const { list, isLoading } = state;
 
   const handleSearch = (q: string) => {
