@@ -19,10 +19,6 @@ class CustomDocument extends Document {
           <meta name="apple-mobile-web-app-title" content="Food Nearby" />
           <meta name="description" content="Find nearby restaurant list" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta
-            name="msapplication-config"
-            content="/static/icons/browserconfig.xml"
-          />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="msapplication-tap-highlight" content="no" />
           <meta name="theme-color" content="#ffffff" />
