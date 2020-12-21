@@ -24,7 +24,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
   } = restaurant;
   return (
     <Link href={`/restaurant/${place_id}`}>
-      <a className="xl:w-1/3 md:w-1/3 w-96 p-4">
+      <a className="xl:w-1/3 md:w-1/3 w-full p-4">
         <div className="bg-white rounded-lg h-52  md:h-40 lg:h-52 overflow-hidden">
           {photos && (
             <Image

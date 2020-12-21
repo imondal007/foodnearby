@@ -34,7 +34,7 @@ const Home: React.FC<RestaurantsType> = ({ restaurants }: RestaurantsType) => {
       <div className="bg-gray-50 min-h-screen relative flex">
         <Header onSearch={handleSearch} q={q} />
         <div className="container flex mx-auto max-w-5xl flex-1">
-          <div className="flex flex-wrap justify-center md:justify-start p-4 pt-20 md:pt-24 lg:pt-28 flex-1">
+          <div className="flex flex-wrap justify-center md:justify-start pt-20 md:pt-24 lg:pt-28 flex-1">
             <RestaurantList restaurants={list} isLoading={isLoading} />
           </div>
         </div>
