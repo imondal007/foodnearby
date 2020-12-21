@@ -25,13 +25,13 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }: Props) => {
   return (
     <Link href={`/restaurant/${place_id}`}>
       <a className="xl:w-1/3 md:w-1/3 w-full p-4">
-        <div className="bg-white rounded-lg h-52  md:h-40 lg:h-52 overflow-hidden">
+        <div className="bg-white rounded-lg h-52 md:h-40 lg:h-52 overflow-hidden child-full">
           {photos && (
             <Image
               src={photos ? getImgUrl(photos[0].photo_reference, 360) : ""}
-              className="w-full h-52 object-cover rounded-lg"
+              // className="w-full h-52 object-cover rounded-lg"
               alt={name}
-              width={360}
+              width={380}
               height={300}
             />
           )}

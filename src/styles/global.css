@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 @import "modules/buttons.css";
+
+.child-full > * {
+  width: 100% !important;
+  object-fit: cover;
+}
